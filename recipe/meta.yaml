@@ -1,5 +1,5 @@
 {% set name = "perfmetrics" %}
-{% set version = "4.0.0" %}
+{% set version = "4.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,15 +7,16 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/perfmetrics-{{ version }}.tar.gz
-  sha256: f6da36006cfef7d2cb9f938da369cd2fbdd40b9c6025ac645854c7ee72fe479f
+  sha256: 495e0eee5681961ec8b2fce9eafa372c90919d9a57cbe7ca0fca7b52a89f5519
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - cython
     - pip
